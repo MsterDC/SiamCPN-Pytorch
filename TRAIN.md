@@ -1,9 +1,9 @@
-# PySOT Training Tutorial
+# SCPN Training Tutorial
 
-This implements training of SiamRPN with backbone architectures, such as ResNet, AlexNet.
-### Add PySOT to your PYTHONPATH
+This implements training of SCPN with backbone architectures, such as ResNet.
+### Add SCPN to your PYTHONPATH
 ```bash
-export PYTHONPATH=/path/to/pysot:$PYTHONPATH
+export PYTHONPATH=/path/to/SCPN:$PYTHONPATH
 ```
 
 ## Prepare training dataset
@@ -18,15 +18,13 @@ Download pretrained backbones from [Google Drive](https://drive.google.com/drive
 
 ## Training
 
-To train a model (SiamRPN++), run `train.py` with the desired configs:
+To train a model (SCPN), run `train.py` with the desired configs:
 
 ```bash
-cd experiments/siamrpn_r50_l234_dwxcorr_8gpu
+cd experiments/siamcpn_r50_l234_dwxcorr_8gpu
 ```
 
 ### Multi-processing Distributed Data Parallel Training
-
-Refer to [Pytorch distributed training](https://pytorch.org/docs/stable/distributed.html) for detailed description.
 
 #### Single node, multiple GPUs:
 ```bash
@@ -37,33 +35,7 @@ python -m torch.distributed.launch \
     ../../tools/train.py --cfg config.yaml
 ```
 
-#### Multiple nodes:
-Node 1: (IP: 192.168.1.1, and has a free port: 2333) master node
-```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-python -m torch.distributed.launch \
-    --nnodes=2 \
-    --node_rank=0 \
-    --nproc_per_node=8 \
-    --master_addr=192.168.1.1 \  # adjust your ip here
-    --master_port=2333 \
-    ../../tools/train.py
-```
-Node 2:
-```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-python -m torch.distributed.launch \
-    --nnodes=2 \
-    --node_rank=1 \
-    --nproc_per_node=8 \
-    --master_addr=192.168.1.1 \
-    --master_port=2333 \
-    ../../tools/train.py
-```
-
 ## Testing
-After training, you can test snapshots on VOT dataset.
-For `AlexNet`, you need to test snapshots from 35 to 50 epoch. 
 For `ResNet`, you need to test snapshots from 10 to 20 epoch.
 
 ```bash 
