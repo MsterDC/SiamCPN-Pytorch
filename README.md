@@ -57,9 +57,10 @@ See [TRAIN.md](TRAIN.md) for detailed instruction.
   
 ## Contributors
 - [Dong Chen](https://github.com/KevinDongDong)
-- [Fangyi Zhang](https://github.com/StrangerZhang)
-- [Qiang Wang](http://www.robots.ox.ac.uk/~qwang/)
-- [Bo Li](http://bo-li.info/)
+
+## Acknowledgement
+Thanks a lot to the contributors of PySot. Based on their extraordinary efforts, we can quickly develop this work, which saves us a lot of time in our research process.
+
 
 ## License
 
