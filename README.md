@@ -26,8 +26,3 @@ See [TRAIN.md](TRAIN.md) for detailed instruction.
 
 ## Acknowledgement
 Thanks a lot to the contributors of PySot. Based on their extraordinary efforts, we can quickly develop this work, which saves us a lot of time in our research process.
-
-
-## License
-
-SCPN is released under the [Apache 2.0 license](https://github.com/STVIR/pysot/blob/master/LICENSE). 
